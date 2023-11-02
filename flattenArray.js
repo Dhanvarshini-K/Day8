@@ -7,22 +7,21 @@
 //   return arr.toString().split(',').map(Number);
 // }
 
-function getflattenNestedList(nestedList) {
-  
-  if(isNaN(nestedList) !== "number"){
-    return "Invalid";
-  }
+function getflattenArray(nestedList) {
+
   const flattened = [];
   for (const item of nestedList) {
     if (Array.isArray(item)) {
-      flattened.push(...getflattenNestedList(item));
+      flattened.push(...getflattenArray(item));
     } else {
       flattened.push(item);
     }
   }
   return flattened;
 }
-console.log(getflattenNestedList([1, [2, [3, [4, [5, 6]]]]]));
+console.log(getflattenArray([1, [2, [3, [4, [5, 6]]]]]));
+console.log(getflattenArray([1,["hello", [3, [true, [4,"world"]]]]]));
+console.log(getflattenArray(["",[[{title : "Javascript"}]]]));
 
 
 

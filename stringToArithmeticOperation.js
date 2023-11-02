@@ -8,10 +8,13 @@
 
 
 
-function getStringToArithmeticOperation(expression) {
+function convertStringToArithmeticOperation(expression) {
 
     if (typeof expression !== "string") {
         return "Invalid Type";
+    }
+     if (isNaN(expression) === Number) {
+        return "Invalid input: not a number or arithmetic expression";
     }
    
     const splitInput = expression.split(" ");
@@ -43,10 +46,11 @@ function getStringToArithmeticOperation(expression) {
     return result;
 }
 
-  console.log(getStringToArithmeticOperation("10 + 70")); 
-  console.log(getStringToArithmeticOperation("20 - 10")); 
-  console.log(getStringToArithmeticOperation(20 - 10));
-  console.log(getStringToArithmeticOperation(true));
-  console.log(getStringToArithmeticOperation("70"));
+  console.log(convertStringToArithmeticOperation("10 + 70 + 30")); 
+  console.log(convertStringToArithmeticOperation("20 - 10")); 
+  console.log(convertStringToArithmeticOperation(20 - 10));
+  console.log(convertStringToArithmeticOperation(true));
+  console.log(convertStringToArithmeticOperation("10 - 30 + 50"));
+
 
   
